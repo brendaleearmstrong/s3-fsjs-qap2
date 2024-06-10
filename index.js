@@ -29,7 +29,19 @@ const server = http.createServer((request, response) => {
     const route = request.url === '/' ? 'index' : request.url.slice(1);
     const filePath = path.join(__dirname, 'views', `${route}.html`);
 
-    if (route === 'daily-info') {
+    if (route === 'styles.css') {
+        fs.readFile(path.join(__dirname, 'views', 'styles.css'), (err, data) => {
+            if (err) {
+                response.writeHead(404, { 'Content-Type': 'text/html' });
+                response.end('<h1>404 Not Found</h1>');
+                myEmitter.emit('statusCode', 404);
+            } else {
+                response.writeHead(200, { 'Content-Type': 'text/css' });
+                response.end(data);
+                myEmitter.emit('statusCode', 200);
+            }
+        });
+    } else if (route === 'daily-info') {
         const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=St.%20John's&appid=${WEATHER_API_KEY}&units=metric`;
         const newsUrl = `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${NEWS_API_KEY}`;
 
@@ -54,8 +66,16 @@ const server = http.createServer((request, response) => {
                 </ul>
             `;
 
-            response.writeHead(200, { 'Content-Type': 'text/html' });
-            response.end(`<h1>Daily Information</h1>${weatherInfo}${newsInfo}`);
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    response.writeHead(404, { 'Content-Type': 'text/html' });
+                    response.end('<h1>404 Not Found</h1>');
+                } else {
+                    const updatedData = data.replace('{{weather}}', weatherInfo).replace('{{news}}', newsInfo);
+                    response.writeHead(200, { 'Content-Type': 'text/html' });
+                    response.end(updatedData);
+                }
+            });
             myEmitter.emit('statusCode', 200);
         }).catch(err => {
             console.error(err);

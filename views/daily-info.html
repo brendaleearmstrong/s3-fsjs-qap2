@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>S3 FSJS QAP 2 - Daily Info</title>
+    <title>Daily Info Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
     <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/products">Products</a>
-        <a href="/contact">Contact</a>
-        <a href="/subscribe">Subscribe</a>
-        <a href="/daily-info">Daily Information</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/subscribe">Subscribe</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/daily-info">Daily Info</a></li>
+        </ul>
     </nav>
-
+    <div class="container">
+        <h1>Welcome Semester 3 FSJS QAP2 - Daily Info Page</h1>
+        <div class="weather-info">
+            <h2>High Change of Rain, Drizzle and Fog - Especially in Horse Chops!</h2>
+            <p>{{weather}}</p>
+        </div>
+        <div class="news-info">
+            <h2>News from Across this Beautiful Country!</h2>
+            <ul>
+                {{news}}
+            </ul>
+        </div>
+    </div>  
+<H1>Author: Brenda Armstrong, SD10 - June 10, 2024</H1>
 </body>
 </html>
+
