@@ -10,10 +10,10 @@ const getLogFilePath = () => {
     return path.join(logDir, `${date.toISOString().split('T')[0]}.log`);
 };
 
-const logEvent = (status, route) => {
+const logEvent = (status, route, message) => {
     const logFilePath = getLogFilePath();
-    const message = `${new Date().toISOString()} - ${status} - ${route}\n`;
-    fs.appendFile(logFilePath, message, (err) => {
+    const logMessage = `${new Date().toISOString()} - ${status} - ${route} - ${message}\n`;
+    fs.appendFile(logFilePath, logMessage, (err) => {
         if (err) console.error('Error writing to log file', err);
     });
 };
