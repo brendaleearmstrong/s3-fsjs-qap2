@@ -1,0 +1,12 @@
+{
+  "name": "s3-fsjs-qap2",
+  "version": "1.0.0",
+  "description": "Semester 3 Fullstack QAP 2 - June 10, 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Brenda Armstrong",
+  "license": "ISC"
+}
