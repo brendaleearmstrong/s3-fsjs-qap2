@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const EventEmitter = require('events');
-const { logMessage } = require('./logger');
+const { logMessage } = require('./logevents');
 
 class MyEmitter extends EventEmitter {}
 
