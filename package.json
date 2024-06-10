@@ -1,12 +1,16 @@
 {
   "name": "s3-fsjs-qap2",
   "version": "1.0.0",
-  "description": "Semester 3 Fullstack QAP 2 - June 10, 2024",
+  "description": "FSJS QAP3 - About The main deliverable for this QAP is a multi-route http server that displays HTML files. For each route an event will be emitted to log the server activity, this logging will be written to both disk and to the console.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Brenda Armstrong",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
 }
